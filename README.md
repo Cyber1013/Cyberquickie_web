@@ -1,4 +1,4 @@
-# CyberQuickie - Standalone Website
+# CyberQuickie 
 
 A complete, standalone version of the CyberQuickie cybersecurity portfolio website without any Wix dependencies.
 
