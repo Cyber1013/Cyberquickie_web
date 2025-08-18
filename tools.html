@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tools List - CyberQuickie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #222222;
+            background: #000000;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: #00FFA3;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: rgba(0, 255, 163, 0.1);
+            border: 1px solid transparent;
+        }
+        
+        nav a:hover {
+            color: #00FFA3;
+            background: rgba(0, 255, 163, 0.2);
+            border-color: #00FFA3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 163, 0.3);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 120px 20px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-size: 3em;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 163, 0.5);
+        }
+        
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .tool-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 163, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .tool-card:hover::before {
+            left: 100%;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            border-color: #00FFA3;
+            box-shadow: 0 8px 25px rgba(0, 255, 163, 0.2);
+        }
+        
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .tool-name {
+            color: #00FFA3;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .tool-category {
+            background: #333;
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .tool-description {
+            color: #cccccc;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .tool-button {
+            background: linear-gradient(45deg, #00FFA3, #00CC82);
+            color: #000000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 163, 0.3);
+        }
+        
+        /* Back to Home */
+        .back-home {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .back-button {
+            background: linear-gradient(45deg, #00FFA3, #00CC82);
+            color: #000000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 163, 0.3);
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 163, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #000000;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        footer a {
+            color: #00FFA3;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        footer p {
+            color: #cccccc;
+            margin-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5em;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .tool-card {
+                padding: 20px;
+            }
+            
+            .tool-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            nav {
+                gap: 20px;
+            }
+            
+            .main-content {
+                padding: 100px 15px 60px;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">👾 CyberQuickie</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="tools.html">Tools</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">Tools List</h1>
+
+        <!-- Tools Grid -->
+        <div class="tools-grid">
+            <!-- Network Analysis Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Wireshark</div>
+                        <div class="tool-category">Network Analysis</div>
+                    </div>
+                </div>
+                <div class="tool-description">Protocol analyzer for capturing and inspecting network traffic.</div>
+                <a href="https://www.wireshark.org/download.html" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">tcpdump</div>
+                        <div class="tool-category">Network Analysis</div>
+                    </div>
+                </div>
+                <div class="tool-description">Command-line packet capture and analysis tool.</div>
+                <a href="https://www.tcpdump.org/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Tshark</div>
+                        <div class="tool-category">Network Analysis</div>
+                    </div>
+                </div>
+                <div class="tool-description">Terminal version of Wireshark for packet analysis.</div>
+                <a href="https://www.wireshark.org/docs/man-pages/tshark.html" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Zeek</div>
+                        <div class="tool-category">Network Monitoring</div>
+                    </div>
+                </div>
+                <div class="tool-description">Network security monitoring and traffic analysis framework.</div>
+                <a href="https://zeek.org/get-zeek/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Suricata</div>
+                        <div class="tool-category">Intrusion Detection/Prevention</div>
+                    </div>
+                </div>
+                <div class="tool-description">IDS/IPS engine with high-performance packet processing.</div>
+                <a href="https://suricata.io/download/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Snort</div>
+                        <div class="tool-category">Intrusion Detection System</div>
+                    </div>
+                </div>
+                <div class="tool-description">Open-source network IDS/IPS for detecting attacks.</div>
+                <a href="https://www.snort.org/downloads" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">ntopng</div>
+                        <div class="tool-category">Network Monitoring</div>
+                    </div>
+                </div>
+                <div class="tool-description">Real-time network traffic monitoring and flow analysis.</div>
+                <a href="https://www.ntop.org/products/traffic-analysis/ntop/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">NetFlow Analyzer</div>
+                        <div class="tool-category">Network Monitoring</div>
+                    </div>
+                </div>
+                <div class="tool-description">Flow-based traffic monitoring and bandwidth analytics.</div>
+                <a href="https://www.manageengine.com/products/netflow/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">MTR</div>
+                        <div class="tool-category">Network Troubleshooting</div>
+                    </div>
+                </div>
+                <div class="tool-description">Combines traceroute and ping for network diagnostics.</div>
+                <a href="https://github.com/traviscross/mtr" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">hping3</div>
+                        <div class="tool-category">Network Testing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Packet generator and analyzer for testing networks and firewalls.</div>
+                <a href="http://www.hping.org/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Vulnerability Scanning Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Nmap</div>
+                        <div class="tool-category">Vulnerability Scanner</div>
+                    </div>
+                </div>
+                <div class="tool-description">Network discovery and security auditing tool.</div>
+                <a href="https://nmap.org/download.html" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Masscan</div>
+                        <div class="tool-category">Port Scanner</div>
+                    </div>
+                </div>
+                <div class="tool-description">Very fast TCP port scanner for large address spaces.</div>
+                <a href="https://github.com/robertdavidgraham/masscan" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Zmap</div>
+                        <div class="tool-category">Port Scanner</div>
+                    </div>
+                </div>
+                <div class="tool-description">Internet-wide network scanner for research and surveys.</div>
+                <a href="https://zmap.io/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">OpenVAS</div>
+                        <div class="tool-category">Vulnerability Scanner</div>
+                    </div>
+                </div>
+                <div class="tool-description">Open-source vulnerability scanning suite (Greenbone).</div>
+                <a href="https://www.openvas.org/download.html" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Nessus</div>
+                        <div class="tool-category">Vulnerability Scanner</div>
+                    </div>
+                </div>
+                <div class="tool-description">Comprehensive vulnerability assessment platform.</div>
+                <a href="https://www.tenable.com/downloads/nessus" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Qualys VMDR</div>
+                        <div class="tool-category">Vulnerability Management</div>
+                    </div>
+                </div>
+                <div class="tool-description">Cloud-based vulnerability and risk management platform.</div>
+                <a href="https://www.qualys.com/vmdr/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Web Security Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Nikto</div>
+                        <div class="tool-category">Web Security Testing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Web server scanner for dangerous files and misconfigurations.</div>
+                <a href="https://cirt.net/Nikto2" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">OWASP ZAP</div>
+                        <div class="tool-category">Web Security Testing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Intercepting proxy and scanner for web apps.</div>
+                <a href="https://www.zaproxy.org/download/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Burp Suite</div>
+                        <div class="tool-category">Web Security Testing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Integrated platform for web application security testing.</div>
+                <a href="https://portswigger.net/burp/releases" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">WhatWeb</div>
+                        <div class="tool-category">Reconnaissance</div>
+                    </div>
+                </div>
+                <div class="tool-description">Website fingerprinting tool to identify technologies.</div>
+                <a href="https://github.com/urbanadventurer/WhatWeb" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Penetration Testing Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Metasploit Framework</div>
+                        <div class="tool-category">Penetration Testing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Exploit development and execution framework.</div>
+                <a href="https://www.metasploit.com/download" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Cobalt Strike</div>
+                        <div class="tool-category">Red Team</div>
+                    </div>
+                </div>
+                <div class="tool-description">Adversary simulation and post-exploitation platform.</div>
+                <a href="https://www.cobaltstrike.com/trial" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Sliver</div>
+                        <div class="tool-category">Red Team</div>
+                    </div>
+                </div>
+                <div class="tool-description">Open-source adversary emulation platform and C2.</div>
+                <a href="https://github.com/BishopFox/sliver" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Empire</div>
+                        <div class="tool-category">Post-Exploitation</div>
+                    </div>
+                </div>
+                <div class="tool-description">PowerShell and Python post-exploitation framework.</div>
+                <a href="https://github.com/BC-SECURITY/Empire" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Active Directory Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Responder</div>
+                        <div class="tool-category">Credential Harvesting</div>
+                    </div>
+                </div>
+                <div class="tool-description">LLMNR/NBT-NS/mDNS poisoner for credential capture.</div>
+                <a href="https://github.com/lgandx/Responder" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Impacket</div>
+                        <div class="tool-category">Lateral Movement</div>
+                    </div>
+                </div>
+                <div class="tool-description">Python tools for working with network protocols (SMB/RPC/LDAP).</div>
+                <a href="https://github.com/SecureAuthCorp/impacket" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">CrackMapExec</div>
+                        <div class="tool-category">Lateral Movement</div>
+                    </div>
+                </div>
+                <div class="tool-description">Swiss army knife for pentesting Windows/Active Directory environments.</div>
+                <a href="https://github.com/Porchetta-Industries/CrackMapExec" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Mimikatz</div>
+                        <div class="tool-category">Credential Dumping</div>
+                    </div>
+                </div>
+                <div class="tool-description">Tool for interacting with Windows security and dumping credentials.</div>
+                <a href="https://github.com/gentilkiwi/mimikatz" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">BloodHound</div>
+                        <div class="tool-category">Active Directory</div>
+                    </div>
+                </div>
+                <div class="tool-description">Graph-based analysis of AD relationships for attack paths.</div>
+                <a href="https://github.com/BloodHoundAD/BloodHound" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Kerbrute</div>
+                        <div class="tool-category">Active Directory</div>
+                    </div>
+                </div>
+                <div class="tool-description">Kerberos bruteforcer and enumerator for AD.</div>
+                <a href="https://github.com/ropnop/kerbrute" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- OSINT Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">theHarvester</div>
+                        <div class="tool-category">OSINT</div>
+                    </div>
+                </div>
+                <div class="tool-description">E-mail, subdomain, and name harvester from public sources.</div>
+                <a href="https://github.com/laramies/theHarvester" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Maltego</div>
+                        <div class="tool-category">OSINT</div>
+                    </div>
+                </div>
+                <div class="tool-description">Link analysis and data mining for investigations.</div>
+                <a href="https://www.maltego.com/downloads/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">SpiderFoot</div>
+                        <div class="tool-category">OSINT</div>
+                    </div>
+                </div>
+                <div class="tool-description">Automated OSINT collection and analysis platform.</div>
+                <a href="https://github.com/smicallef/spiderfoot" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Shodan</div>
+                        <div class="tool-category">OSINT/IoT</div>
+                    </div>
+                </div>
+                <div class="tool-description">Search engine for Internet-connected devices and services.</div>
+                <a href="https://cli.shodan.io/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Amass</div>
+                        <div class="tool-category">Reconnaissance</div>
+                    </div>
+                </div>
+                <div class="tool-description">DNS enumeration and attack surface mapping.</div>
+                <a href="https://github.com/owasp-amass/amass" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Sublist3r</div>
+                        <div class="tool-category">Reconnaissance</div>
+                    </div>
+                </div>
+                <div class="tool-description">Fast subdomain enumeration tool.</div>
+                <a href="https://github.com/aboul3la/Sublist3r" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Password Cracking Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Hashcat</div>
+                        <div class="tool-category">Password Cracking</div>
+                    </div>
+                </div>
+                <div class="tool-description">GPU-accelerated password recovery tool.</div>
+                <a href="https://hashcat.net/hashcat/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">John the Ripper</div>
+                        <div class="tool-category">Password Cracking</div>
+                    </div>
+                </div>
+                <div class="tool-description">Fast password cracker supporting many hash types.</div>
+                <a href="https://www.openwall.com/john/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Hydra</div>
+                        <div class="tool-category">Password Attacks</div>
+                    </div>
+                </div>
+                <div class="tool-description">Network logon cracker supporting many services.</div>
+                <a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">CeWL</div>
+                        <div class="tool-category">Wordlist Generation</div>
+                    </div>
+                </div>
+                <div class="tool-description">Custom wordlist generator using web content.</div>
+                <a href="https://github.com/digininja/CeWL" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Crunch</div>
+                        <div class="tool-category">Wordlist Generation</div>
+                    </div>
+                </div>
+                <div class="tool-description">Wordlist generator for custom password lists.</div>
+                <a href="https://github.com/crunch/crunch" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Cloud Security Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">ScoutSuite</div>
+                        <div class="tool-category">Cloud Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">Multi-cloud security auditing tool.</div>
+                <a href="https://github.com/nccgroup/ScoutSuite" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Prowler</div>
+                        <div class="tool-category">Cloud Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">AWS/Azure/GCP security best practices assessment.</div>
+                <a href="https://github.com/prowler-cloud/prowler" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Container Security Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Trivy</div>
+                        <div class="tool-category">Container Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">Vulnerability scanner for containers, SBOMs and IaC.</div>
+                <a href="https://github.com/aquasecurity/trivy" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Falco</div>
+                        <div class="tool-category">Runtime Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">Cloud-native runtime security for containers and hosts.</div>
+                <a href="https://github.com/falcosecurity/falco" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">kube-bench</div>
+                        <div class="tool-category">Kubernetes Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">Checks Kubernetes clusters against CIS benchmarks.</div>
+                <a href="https://github.com/aquasecurity/kube-bench" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">kube-hunter</div>
+                        <div class="tool-category">Kubernetes Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">Hunts for security issues in Kubernetes clusters.</div>
+                <a href="https://github.com/aquasecurity/kube-hunter" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Forensics Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Volatility</div>
+                        <div class="tool-category">Memory Forensics</div>
+                    </div>
+                </div>
+                <div class="tool-description">Advanced memory forensics framework.</div>
+                <a href="https://github.com/volatilityfoundation/volatility3" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Autopsy</div>
+                        <div class="tool-category">Digital Forensics</div>
+                    </div>
+                </div>
+                <div class="tool-description">GUI for The Sleuth Kit to analyze disks and smartphones.</div>
+                <a href="https://www.autopsy.com/download/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">The Sleuth Kit</div>
+                        <div class="tool-category">Digital Forensics</div>
+                    </div>
+                </div>
+                <div class="tool-description">Collection of command-line forensic tools.</div>
+                <a href="https://github.com/sleuthkit/sleuthkit" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Incident Response Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Velociraptor</div>
+                        <div class="tool-category">Incident Response</div>
+                    </div>
+                </div>
+                <div class="tool-description">Endpoint monitoring, DFIR, and artifact collection.</div>
+                <a href="https://github.com/Velocidex/velociraptor" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">GRR Rapid Response</div>
+                        <div class="tool-category">Incident Response</div>
+                    </div>
+                </div>
+                <div class="tool-description">Remote live forensics and incident response framework.</div>
+                <a href="https://github.com/google/grr" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Kape</div>
+                        <div class="tool-category">Incident Response</div>
+                    </div>
+                </div>
+                <div class="tool-description">Rapid triage and collection for Windows artifacts.</div>
+                <a href="https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Windows Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Sysinternals Suite</div>
+                        <div class="tool-category">Windows Tools</div>
+                    </div>
+                </div>
+                <div class="tool-description">Utilities for Windows troubleshooting and forensics.</div>
+                <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">OSQuery</div>
+                        <div class="tool-category">Endpoint Visibility</div>
+                    </div>
+                </div>
+                <div class="tool-description">SQL-powered endpoint telemetry and visibility.</div>
+                <a href="https://github.com/osquery/osquery" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- SIEM/EDR Tools -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Wazuh</div>
+                        <div class="tool-category">SIEM/EDR</div>
+                    </div>
+                </div>
+                <div class="tool-description">Security monitoring, SIEM, and XDR platform.</div>
+                <a href="https://wazuh.com/download/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Elastic Security</div>
+                        <div class="tool-category">SIEM</div>
+                    </div>
+                </div>
+                <div class="tool-description">SIEM and endpoint security on the Elastic Stack.</div>
+                <a href="https://www.elastic.co/security" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">CrowdStrike Falcon</div>
+                        <div class="tool-category">EDR</div>
+                    </div>
+                </div>
+                <div class="tool-description">Cloud-delivered endpoint detection and response platform.</div>
+                <a href="https://www.crowdstrike.com/products/falcon-endpoint-protection/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Web Security Testing -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">sqlmap</div>
+                        <div class="tool-category">Web Security Testing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Automated SQL injection and database takeover tool.</div>
+                <a href="https://github.com/sqlmapproject/sqlmap" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">wpscan</div>
+                        <div class="tool-category">Web Security Testing</div>
+                    </div>
+                </div>
+                <div class="tool-description">WordPress vulnerability scanner.</div>
+                <a href="https://github.com/wpscanteam/wpscan" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">ffuf</div>
+                        <div class="tool-category">Web Fuzzing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Fast web fuzzer for content discovery.</div>
+                <a href="https://github.com/ffuf/ffuf" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Feroxbuster</div>
+                        <div class="tool-category">Web Fuzzing</div>
+                    </div>
+                </div>
+                <div class="tool-description">Recursive content discovery for web apps.</div>
+                <a href="https://github.com/epi052/feroxbuster" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Dirb</div>
+                        <div class="tool-category">Web Fuzzing</div>
+                    </div>
+                </div>
+                <div class="tool-description">URL and content brute forcing for web servers.</div>
+                <a href="https://github.com/v0re/dirb" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Phishing Simulation -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Gophish</div>
+                        <div class="tool-category">Phishing Simulation</div>
+                    </div>
+                </div>
+                <div class="tool-description">Open-source phishing framework for training and testing.</div>
+                <a href="https://github.com/gophish/gophish" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">King Phisher</div>
+                        <div class="tool-category">Phishing Simulation</div>
+                    </div>
+                </div>
+                <div class="tool-description">Phishing campaign toolkit for security assessments.</div>
+                <a href="https://github.com/rsmusllp/king-phisher" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Wireless Security -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Aircrack-ng</div>
+                        <div class="tool-category">Wireless Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">Suite for Wi‑Fi monitoring and WEP/WPA key cracking.</div>
+                <a href="https://www.aircrack-ng.org/downloads.html" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Kismet</div>
+                        <div class="tool-category">Wireless Monitoring</div>
+                    </div>
+                </div>
+                <div class="tool-description">Wireless network detector, sniffer, and IDS.</div>
+                <a href="https://www.kismetwireless.net/downloads/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Mobile Security -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">MobSF</div>
+                        <div class="tool-category">Mobile Security</div>
+                    </div>
+                </div>
+                <div class="tool-description">Mobile application (Android/iOS) security testing framework.</div>
+                <a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Cryptography -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">GnuPG</div>
+                        <div class="tool-category">Cryptography</div>
+                    </div>
+                </div>
+                <div class="tool-description">OpenPGP encryption and signing toolkit.</div>
+                <a href="https://gnupg.org/download/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">HashiCorp Vault</div>
+                        <div class="tool-category">Secrets Management</div>
+                    </div>
+                </div>
+                <div class="tool-description">Secure storage, encryption, and access to secrets.</div>
+                <a href="https://www.vaultproject.io/downloads" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Monitoring -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Grafana</div>
+                        <div class="tool-category">Monitoring</div>
+                    </div>
+                </div>
+                <div class="tool-description">Observability dashboards and visualization platform.</div>
+                <a href="https://grafana.com/grafana/download/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Prometheus</div>
+                        <div class="tool-category">Monitoring</div>
+                    </div>
+                </div>
+                <div class="tool-description">Time‑series monitoring and alerting toolkit.</div>
+                <a href="https://prometheus.io/download/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Scripting -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Nmap Scripting Engine</div>
+                        <div class="tool-category">Scripting</div>
+                    </div>
+                </div>
+                <div class="tool-description">Lua scripts that extend Nmap for vuln detection and discovery.</div>
+                <a href="https://nmap.org/nsedoc/" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Active Directory -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">SharpHound</div>
+                        <div class="tool-category">Active Directory</div>
+                    </div>
+                </div>
+                <div class="tool-description">Data collector for BloodHound to map AD relationships.</div>
+                <a href="https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Network Analysis -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Rita</div>
+                        <div class="tool-category">Network Analysis</div>
+                    </div>
+                </div>
+                <div class="tool-description">Detects beaconing behavior in Zeek logs.</div>
+                <a href="https://github.com/activecm/rita" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Malware Analysis -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">YARA</div>
+                        <div class="tool-category">Malware Analysis</div>
+                    </div>
+                </div>
+                <div class="tool-description">Pattern matching to identify and classify malware.</div>
+                <a href="https://github.com/VirusTotal/yara" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <!-- Antivirus -->
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">ClamAV</div>
+                        <div class="tool-category">Antivirus</div>
+                    </div>
+                </div>
+                <div class="tool-description">Open-source antivirus engine for detecting malware.</div>
+                <a href="https://www.clamav.net/downloads" target="_blank" class="tool-button">Start Now</a>
+            </div>
+
+            <div class="tool-card fade-in">
+                <div class="tool-header">
+                    <div>
+                        <div class="tool-name">Bitdefender Antivirus</div>
+                        <div class="tool-category">Antivirus</div>
+                    </div>
+                </div>
+                <div class="tool-description">Commercial antivirus offering malware protection.</div>
+                <a href="https://www.bitdefender.com/solutions/free.html" target="_blank" class="tool-button">Start Now</a>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="back-home">
+            <a href="index.html" class="back-button">← Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="privacy.html">Privacy Policy</a>
+        <p>&copy; 2025 by Ashish Dev Choudhary</p>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html> 
